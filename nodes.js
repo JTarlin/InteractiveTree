@@ -3,16 +3,16 @@ const red = "#bf0845";
 
 // create an array with nodes
 var nodes = new vis.DataSet([
-    { id: 1, label: "Glen Mattis", level: 1, group: 1},
-    { id: 2, label: "Morgan Vulpis", level: 2, group: 1 },
-    { id: 3, label: "Orpheus Faust", level: 2, group: 3 },
-    { id: 4, label: "Mary May", level: 3, group: 1 },
-    { id: 5, label: "Mr. Bruce", level: 3, group: 1 },
-    {id: 6, label: "Coralai Cronn", level: 3, group: 4},
-    {id: 7, label: "Mariel Navila", level: 4, group: 2},
-    {id: 8, label: "Koren Hydar", level: 2, group: 2},
-    {id: 9, label: "Skar Sona", level: 2, group: 2},
-    {id: 10, label: "Sofia Barati", level: 1, group: 2},
+    { id: 1, label: "Glen Mattis", level: 1, group: "apex"},
+    { id: 2, label: "Morgan Vulpis", level: 2, group: "apex" },
+    { id: 3, label: "Orpheus Faust", level: 2, group: "harper" },
+    { id: 4, label: "Mary May", level: 3, group: "apex" },
+    { id: 5, label: "Mr. Bruce", level: 3, group: "apex" },
+    {id: 6, label: "Coralai Cronn", level: 3, group: "cronn"},
+    {id: 7, label: "Mariel Navila", level: 4, group: "magv"},
+    {id: 8, label: "Koren Hydar", level: 2, group: "magv"},
+    {id: 9, label: "Skar Sona", level: 2, group: "magv"},
+    {id: 10, label: "Sofia Barati", level: 1, group: "magv"},
   ]);
 
   // create an array with edges
@@ -46,15 +46,30 @@ var nodes = new vis.DataSet([
   var options = {
         layout: {
             hierarchical: false
-            // hierarchical: {
-            // direction: "UD",
-            // },
         },
         edges: {
             smooth: {
                 type: "cubicBezier",
                 forceDirection: "none",
-                roundness: 0.5,
+                roundness: 0.4,
+            },
+        },
+        groups: {
+            apex: {
+                color: { background: "#32D2CF", border: "white"},
+                font: {color: "white"}
+            },
+            magv: {
+                color: { background: "#A22222", border: "black"},
+                font: {color: "black"}
+            },
+            harper: {
+                color: { background: "black", border: "black"},
+                font: {color: "white"}
+            },
+            cronn:  {
+                color: { background: "#930EEC", border: "#D7B124"},
+                font: {color: "#D7B124"}
             },
         },
         physics: {
